@@ -1,0 +1,41 @@
+<div class="card m-3">
+    <h5 class="card-header">Template</h5>
+    <div class="card-body">
+        <form *ngIf="registerTemplateForm" [formGroup]="registerTemplateForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>String Field</label>
+                    <input type="text" formControlName="stringField" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.stringField.errors }" />
+                    <div *ngIf="submitted && f.stringField.errors" class="invalid-feedback">
+                        <div *ngIf="f.stringField.errors.required">String Field</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Integer Field</label>
+                    <input type="number" formControlName="integerField" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.integerField.errors }" />
+                    <div *ngIf="submitted && f.integerField.errors" class="invalid-feedback">
+                        <div *ngIf="f.integerField.errors.required">Integer Field</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Date Field</label>
+                    <input type="date" formControlName="dateField" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.dateField.errors }" />
+                    <div *ngIf="submitted && f.dateField.errors" class="invalid-feedback">
+                        <div *ngIf="f.dateField.errors.required">Date Field</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Register</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

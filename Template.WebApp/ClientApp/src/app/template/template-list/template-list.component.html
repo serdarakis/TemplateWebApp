@@ -1,0 +1,31 @@
+<p *ngIf="Loading"><em>Loading...</em></p>
+<div class="row">
+  <div class="col-12 remove-padding">
+    <div class="btn btn-primary mr-1 right" [routerLink]="['add']">
+      <span>New</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="!Loading">
+    <thead>
+      <tr>
+        <th>String Field</th>
+        <th>Date Field</th>
+        <th>Integer</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let template of TemplateList">
+        <td>{{ template.stringField }}</td>
+        <td>{{ template.dateField | date:'dd/MM/yyyy' }}</td>
+        <td>{{ template.integerField }}</td>
+        <td><a class="btn btn-primary mr-1" [routerLink]="['/edit',template.id]">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
